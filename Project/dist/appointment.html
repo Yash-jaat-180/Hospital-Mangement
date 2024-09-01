@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediLab Hospital</title>
+    <link rel="icon" type="image/x-icon" href="WhatsApp Image 2024-07-06 at 15.21.32_1477d116.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mx-auto  w-full">
+        <header
+            class="flex fixed justify-between items-center py-[1.2vw] px-[1.7vw] w-full border-[1px] border-b-slate-500 z-2 bg-[#FFFFFF]">
+            <div id="logo" class="flex items-center">
+                <img src="WhatsApp Image 2024-07-06 at 15.21.32_1477d116.jpg" alt="Hospital Logo" class="h-16 rounded-full">
+                <h3 class="text-2xl font-bold">MediLab Hospital</h3>
+            </div>
+            <nav class="flex space-x-[2.5vw] text-[1.2vw]">
+                <a href="home.html"
+                    class="text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]">Home</a>
+                <a href="#"
+                    class="text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]">Appointment</a>
+                <a href="service.html"
+                    class="text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]">Services</a>
+                <a href="about.html"
+                    class="text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]">About
+                    Us</a>
+                <div class="relative inline-block text-left">
+                    <button onclick="toggleDropdown()"
+                        class="flex items-center text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]0">
+                        Departments
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <div id="dropdown"
+                        class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden">
+                        <div class="py-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cardiology</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Orthopedics</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pediatrics</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Neurology</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Oncology</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dermatology</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gastroenterology</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gynecology</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Radiology</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Emergency
+                                Medicine</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="flex space-x-4">
+                <a href="#" id="loginButton"
+                    class="text-gray-700 font-medium border border-gray-300 rounded-lg py-3 px-5 transition ease-in-out duration-300 hover:bg-[#9083D5] hover:font-medium hover:text-white ">Login</a>
+                <a href="#" id="registerButton"
+                    class="bg-[#9083D5] text-white rounded-lg py-3 px-5 hover:bg-[#6f5fc2] font-medium">Register</a>
+            </div>
+        </header>
+
+        <div id="loginModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[100]">
+            <!-- Modal Content -->
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-8">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-900">Login</h2>
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        &times;
+                    </button>
+                </div>
+                <form class="space-y-4">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            placeholder="Email address">
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input id="password" name="password" type="password" autocomplete="current-password" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            placeholder="Password">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox"
+                                class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
+                        </div>
+
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-[#9083D5] hover:text-[#6f5fc2]">Forgot your
+                                password?</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                            class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#9083D5] hover:bg-[#6f5fc2] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Sign in
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="registerModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[100]">
+            <!-- Modal Content -->
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-8">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-900">SignUp</h2>
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        &times;
+                    </button>
+                </div>
+                <form class="space-y-4">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            placeholder="Email address">
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input id="password" name="password" type="password" autocomplete="current-password" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            placeholder="Password">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox"
+                                class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                            class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#9083D5] hover:bg-[#6f5fc2] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Register
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <section class="flex w-full pt-[12vw] px-[2vw] -z-50">
+            <div class="flex flex-col flex-wrap w-1/2">
+                <h1 class="text-[5.4vw] font-bold leading-[6.3vw] mb-6">Online Book Yours Appointment with Ease</h1>
+                <p>On the Appointment page, patients can easily schedule consultations with our expert doctors. Choose your preferred doctor, select a suitable date and time, and provide essential details to confirm your appointment. Our streamlined booking process ensures prompt and personalized care, tailored to your health needs.</p>
+                <a href="#form"
+                    class="w-[4vw] mt-[1.5vw] flex justify-center items-center bg-[#9083D5] text-white rounded-lg py-2 px-7 hover:bg-[#6f5fc2] font-medium">Form</a>
+            </div>
+            <div class="flex w-1/2 justify-between px-[2vw]">
+                <img src="./assets/appointmentImage/appointment2.avif" class="object-scale-down w-[20vw] h-[30vw]" alt="">
+                <img src="./assets/appointmentImage/appointement.avif" class="object-scale-down w-[20vw] h-[30vw]" alt="">
+            </div>
+        </section>
+
+        <section id="form" class="sign-up rounded-lg py-8 px-4 mt-8 bg-grey-100">
+            <h2 class="text-[4vw] font-bold text-left mb-6 px-[2vw] text-gray-600">Appointment</h2>
+            <form>
+                <div class="form-group flex flex-wrap gap-8 mb-6 px-[2vw]">
+                    <input type="text" name="first-name" placeholder="First Name" required
+                        class="flex-1 py-2 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
+                    <input type="text" name="last-name" placeholder="Last Name" required
+                        class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
+                </div>
+                <div class="form-group flex flex-wrap gap-8 mb-6 px-[2vw]">
+                    <input type="email" name="email" placeholder="Email" required
+                        class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-2 focus:border-[#6f5fc2] ">
+                    <input type="text" name="mobile-number" placeholder="Mobile Number" required
+                        class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
+                </div>
+                <div class="form-group flex flex-wrap gap-8 mb-6 px-[2vw]">
+                    <input type="text" name="nic" placeholder="NIC" required
+                        class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
+                    <input type="date" name="dob" placeholder="Date of Birth" required
+                        class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
+                </div>
+                <div class="form-group flex items-center flex-wrap gap-8 mb-6 px-[2vw]">
+                    <select name="gender" required
+                        class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
+                        <option value="" disabled selected>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <label for="appointement-time">Appointment Date: </label>
+                    <input type="date" name="appointment-date" placeholder="Appointment Date" required
+                        class="flex items-center py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
+                    <label for="appointement-time">Appointment Time: </label>
+                    <input type="time" name="appointment-time" required
+                        class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
+                </div>
+                <div class="form-group flex flex-wrap gap-8 mb-6 px-[2vw]">
+                    <select name="department-name" required
+                        class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
+                        <option value="" disabled selected>Department Name</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="neurology">Neurology</option>
+                        <option value="orthopedics">Orthopedics</option>
+                    </select>
+                    <select name="doctor-name" required
+                        class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
+                        <option value="" disabled selected>Doctor Name</option>
+                        <option value="dr-Rajeev-Agarwaal">Dr.Rajeev Agarwaal</option>
+                        <option value="dr-Rajesh-Jain">Dr.Rajesh Jain</option>
+                    </select>
+                </div>
+                <div class="form-group mb-4 px-[2vw]">
+                    <textarea name="address" placeholder="Address" required rows="5"
+                        class="w-full py-3 px-5 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#6f5fc2] focus:border-2"></textarea>
+                </div>
+                <center><button type="submit"
+                        class="bg-[#9083D5] text-white rounded-lg py-3 px-5 hover:bg-[#6f5fc2] font-medium">Register</button>
+                </center>
+            </form>
+        </section>
+
+        <div class="container px-[4vw] mt-[2vw] bg-white rounded-lg">
+            <h2 class="text-[3vw] font-bold mb-1 text-gray-600">Recent Appointment</h2>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-300 rounded-lg">
+                    <thead>
+                        <tr class="bg-gray-100 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                            <th class="py-2 px-4 border-b">ID</th>
+                            <th class="py-2 px-4 border-b">Name</th>
+                            <th class="py-2 px-4 border-b">Role</th>
+                            <th class="py-2 px-4 border-b">Gender</th>
+                            <th class="py-2 px-4 border-b">Email</th>
+                            <th class="py-2 px-4 border-b">Mobile Number</th>
+                            <th class="py-2 px-4 border-b">NIC</th>
+                            <th class="py-2 px-4 border-b">DOB</th>
+                            <th class="py-2 px-4 border-b">Status</th>
+                            <th class="py-2 px-4 border-b">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm text-gray-700">
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-2 px-4 border-b">1</td>
+                            <td class="py-2 px-4 border-b">Madhusha</td>
+                            <td class="py-2 px-4 border-b">Doctor</td>
+                            <td class="py-2 px-4 border-b">Male</td>
+                            <td class="py-2 px-4 border-b">Madhusha@gmail.com</td>
+                            <td class="py-2 px-4 border-b">078-66622616</td>
+                            <td class="py-2 px-4 border-b">86262626</td>
+                            <td class="py-2 px-4 border-b">1999-04-13</td>
+                            <td class="py-2 px-4 border-b">
+                                <span
+                                    class="inline-flex items-center px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full">
+                                    Online
+                                </span>
+                            </td>
+                            <td class="py-2 px-4 border-b">
+                                <button class="text-red-500 hover:text-red-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- Repeat the <tr> block for each row -->
+                        <!-- Example of a repeated row -->
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-2 px-4 border-b">2</td>
+                            <td class="py-2 px-4 border-b">Madhusha</td>
+                            <td class="py-2 px-4 border-b">Doctor</td>
+                            <td class="py-2 px-4 border-b">Male</td>
+                            <td class="py-2 px-4 border-b">Madhusha@gmail.com</td>
+                            <td class="py-2 px-4 border-b">078-66622616</td>
+                            <td class="py-2 px-4 border-b">16616161</td>
+                            <td class="py-2 px-4 border-b">1999-04-13</td>
+                            <td class="py-2 px-4 border-b">
+                                <span
+                                    class="inline-flex items-center px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full">
+                                    Online
+                                </span>
+                            </td>
+                            <td class="py-2 px-4 border-b">
+                                <button class="text-red-500 hover:text-red-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-2 px-4 border-b">2</td>
+                            <td class="py-2 px-4 border-b">Madhusha</td>
+                            <td class="py-2 px-4 border-b">Doctor</td>
+                            <td class="py-2 px-4 border-b">Male</td>
+                            <td class="py-2 px-4 border-b">Madhusha@gmail.com</td>
+                            <td class="py-2 px-4 border-b">078-66622616</td>
+                            <td class="py-2 px-4 border-b">16616161</td>
+                            <td class="py-2 px-4 border-b">1999-04-13</td>
+                            <td class="py-2 px-4 border-b">
+                                <span
+                                    class="inline-flex items-center px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full">
+                                    Online
+                                </span>
+                            </td>
+                            <td class="py-2 px-4 border-b">
+                                <button class="text-red-500 hover:text-red-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-2 px-4 border-b">2</td>
+                            <td class="py-2 px-4 border-b">Madhusha</td>
+                            <td class="py-2 px-4 border-b">Doctor</td>
+                            <td class="py-2 px-4 border-b">Male</td>
+                            <td class="py-2 px-4 border-b">Madhusha@gmail.com</td>
+                            <td class="py-2 px-4 border-b">078-66622616</td>
+                            <td class="py-2 px-4 border-b">16616161</td>
+                            <td class="py-2 px-4 border-b">1999-04-13</td>
+                            <td class="py-2 px-4 border-b">
+                                <span
+                                    class="inline-flex items-center px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full">
+                                    Online
+                                </span>
+                            </td>
+                            <td class="py-2 px-4 border-b">
+                                <button class="text-red-500 hover:text-red-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer class="footer flex justify-between items-start py-12 bg-white mt-[8vw] border-t-[1px] border-black">
+            <div class="footer-section flex-1 mx-4">
+                <img src="WhatsApp Image 2024-07-06 at 15.21.32_1477d116.jpg" class="w-24 h-24 rounded-full">
+            </div>
+            <div class="footer-section flex-1 mx-4">
+                <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                <a href="#" class="text-gray-600 mb-2 block">Home</a>
+                <a href="#" class="text-gray-600 mb-2 block">Appointment</a>
+                <a href="#" class="text-gray-600 mb-2 block">Service</a>
+                <a href="#" class="text-gray-600 mb-2 block">About Us</a>
+                <a href="#" class="text-gray-600 mb-2 block">Contact Us</a>
+            </div>
+            <div class="footer-section flex-1 mx-4">
+                <h3 class="text-lg font-bold mb-4">Hours</h3>
+                <p class="text-gray-600 mb-2">Monday: 9:00 - 18:00</p>
+                <p class="text-gray-600 mb-2">Tuesday: 9:00 - 18:00</p>
+                <p class="text-gray-600 mb-2">Wednesday: 9:00 - 18:00</p>
+                <p class="text-gray-600 mb-2">Thursday: 9:00 - 18:00</p>
+                <p class="text-gray-600 mb-2">Friday: 9:00 - 18:00</p>
+            </div>
+            <div class="footer-section flex-1 mx-4">
+                <h3 class="text-lg font-bold mb-4">Contact</h3>
+                <p class="text-gray-600 mb-2">Phone: 000000</p>
+                <p class="text-gray-600 mb-2">Email: p@gmail.com</p>
+                <p class="text-gray-600 mb-2">Address: Rajpura</p>
+            </div>
+        </footer>
+    </div>
+    <script>
+        const loginButton = document.getElementById('loginButton');
+        const loginModal = document.getElementById('loginModal');
+        const closeModal = document.getElementById('closeModal');
+
+        loginButton.addEventListener('click', () => {
+            loginModal.classList.remove('hidden');
+        });
+
+        closeModal.addEventListener('click', () => {
+            loginModal.classList.add('hidden');
+            registerModal.classList.add('hidden');
+        });
+
+        // Close modal when clicking outside of it
+
+        const registerButton = document.getElementById('registerButton');
+        const registerModal = document.getElementById('registerModal');
+        registerButton.addEventListener('click', () => {
+            registerModal.classList.remove('hidden');
+        });
+
+        window.addEventListener('click', (event) => {
+            console.log(event.target);
+            if (event.target === loginModal) {
+                loginModal.classList.add('hidden');
+            }
+            if (event.target === registerModal) {
+                registerModal.classList.add('hidden');
+            }
+        });
+
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdown");
+            dropdown.classList.toggle("hidden");
+        }
+    </script>
+</body>

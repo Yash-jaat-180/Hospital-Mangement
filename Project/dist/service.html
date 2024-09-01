@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediLab Hospital</title>
+    <link rel="icon" type="image/x-icon" href="WhatsApp Image 2024-07-06 at 15.21.32_1477d116.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mx-auto  w-full">
+        <header
+            class="flex fixed justify-between items-center py-[1.2vw] px-[1.7vw] w-full border-[1px] border-b-slate-500 z-50 bg-[#FFFFFF]">
+            <div id="logo" class="flex items-center">
+                <img src="WhatsApp Image 2024-07-06 at 15.21.32_1477d116.jpg" alt="Hospital Logo" class="h-16 rounded-full">
+                <h3 class="text-2xl font-bold">MediLab Hospital</h3>
+            </div>
+            <nav class="flex space-x-[2.5vw] text-[1.2vw]">
+                <a href="home.html"
+                    class="text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]">Home</a>
+                <a href="appointment.html"
+                    class="text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]">Appointment</a>
+                <a href="service.html"
+                    class="text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]">Services</a>
+                <a href="about.html"
+                    class="text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]">About
+                    Us</a>
+                
+                <div class="relative inline-block text-left">
+                    <button onclick="toggleDropdown()"
+                        class="flex items-center text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]0">
+                        Departments
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <div id="dropdown"
+                        class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden">
+                        <div class="py-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cardiology</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Orthopedics</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pediatrics</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Neurology</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Oncology</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dermatology</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gastroenterology</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gynecology</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Radiology</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Emergency
+                                Medicine</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="flex space-x-4">
+                <a href="#" id="loginButton"
+                    class="text-gray-700 font-medium border border-gray-300 rounded-lg py-3 px-5 transition ease-in-out duration-300 hover:bg-[#9083D5] hover:font-medium hover:text-white ">Login</a>
+                <a href="#" id="registerButton"
+                    class="bg-[#9083D5] text-white rounded-lg py-3 px-5 hover:bg-[#6f5fc2] font-medium">Register</a>
+            </div>
+        </header>
+
+        <div id="loginModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[100]">
+            <!-- Modal Content -->
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-8">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-900">Login</h2>
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        &times;
+                    </button>
+                </div>
+                <form class="space-y-4">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            placeholder="Email address">
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input id="password" name="password" type="password" autocomplete="current-password" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            placeholder="Password">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox"
+                                class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
+                        </div>
+
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-[#9083D5] hover:text-[#6f5fc2]">Forgot your
+                                password?</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                            class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#9083D5] hover:bg-[#6f5fc2] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Sign in
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="registerModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[100]">
+            <!-- Modal Content -->
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-8">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-900">SignUp</h2>
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        &times;
+                    </button>
+                </div>
+                <form class="space-y-4">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            placeholder="Email address">
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input id="password" name="password" type="password" autocomplete="current-password" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            placeholder="Password">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox"
+                                class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                            class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#9083D5] hover:bg-[#6f5fc2] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Register
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <section class="flex w-full pt-[12vw] px-[2vw] -z-50">
+            <div class="flex flex-col flex-wrap w-1/2">
+                <h1 class="text-[5vw] font-bold leading-[6.3vw] mb-6">Trusted MediLab Services for Your Every Need</h1>
+                <p>Our MediLab Hospital provides a wide array of services tailored to support your health journey. Whether
+                    you're seeking routine check-ups, specialized medical care, or emergency services, our experienced
+                    team is here to deliver compassionate and personalized treatment. Explore our offerings to discover
+                    the care that best suits your needs, ensuring you receive the highest standard of MediLab for
+                    every stage of life.</p>
+                <a href="#"
+                    class="w-[4vw] mt-[1.5vw] flex justify-center items-center bg-[#9083D5] text-white rounded-lg py-2 px-7 hover:bg-[#6f5fc2] font-medium">Tour</a>
+            </div>
+            <div class="flex w-1/2 justify-between px-[2vw]">
+                <img src="./assets/serviceImage/main.jpg" class="object-scale-down h-[35vw] w-[40vw] relative left-12 bottom-4 -z-50" alt="">
+            </div>
+        </section>
+
+        <!-- From there comes the main content  -->
+
+        <!-- carousels  -->
+        <section>
+            <div class="w-full h-[72vh] flex items-center justify-between px-[10vw] pt-[13vh] pb-0 mb-[5vw]">
+                <div class="h-full w-1/4 pt-[3vh] border-t-2 border-black">
+                    <h2 class="text-[2.1vw] font-medium text-black">General Consultation</h2>
+                    <p class="text-black mt-[10vh] text-[1.2vw]">
+                        Comprehensive health check-ups and consultations for all age groups. Our general consultations
+                        ensure early detection and prevention of health issues, providing personalized care plans
+                        tailored to your individual needs for a healthier lifestyle.
+                    </p>
+                </div>
+                <div class="h-full w-[70%] bg-[#ffebcd] relative">
+                    <img src="./assets/serviceImage/service1.jpg"
+                        alt="" class="h-[70vh] w-full object-cover -z-50">
+                </div>
+            </div>
+            <div class="w-full h-[72vh] flex items-center justify-between px-[10vw] pt-[13vh] pb-0">
+
+                <div class="h-full w-[70%] bg-[#ffebcd] relative">
+                    <img src="./assets/serviceImage/service2.jpg"
+                        alt="" class="h-[70vh] w-full object-cover -z-50">
+                </div>
+                <div class="h-full w-1/4 pt-[3vh] border-t-2 border-black">
+                    <h2 class="text-[2.1vw] font-medium text-black">Specialized Treatments</h2>
+                    <p class="text-black mt-[10vh] text-[1.2vw]">
+                        Receive expert medical care from our specialized physicians in fields such as cardiology,
+                        orthopedics, and more. Our specialists provide advanced treatments using the latest medical
+                        technology to address complex health conditions with precision and care.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full h-[72vh] flex items-center justify-between px-[10vw] pt-[13vh] pb-0 mb-[5vw]">
+                <div class="h-full w-1/4 pt-[3vh] border-t-2 border-black">
+                    <h2 class="text-[2.1vw] font-medium text-black">Emergency Services</h2>
+                    <p class="text-black mt-[10vh] text-[1.2vw]">
+                        Our 24/7 emergency services offer immediate medical attention for urgent health needs. With a
+                        dedicated team and state-of-the-art facilities, we ensure rapid and effective care during
+                        critical situations, prioritizing patient safety and well-being.
+                    </p>
+                </div>
+                <div class="h-full w-[70%] bg-[#ffebcd] relative">
+                    <img src="./assets/serviceImage/service3.jpg"
+                        alt="" class="h-[70vh] w-full object-cover -z-50">
+                </div>
+            </div>
+            <div class="w-full h-[72vh] flex items-center justify-between px-[10vw] pt-[13vh] pb-0">
+
+                <div class="h-full w-[70%] bg-[#ffebcd] relative">
+                    <img src="./assets/serviceImage/service4.jpg"
+                        alt="" class="h-[70vh] w-full object-cover -z-50">
+                </div>
+                <div class="h-full w-1/4 pt-[3vh] border-t-2 border-black">
+                    <h2 class="text-[2.1vw] font-medium text-black">Diagnostic Services</h2>
+                    <p class="text-black mt-[10vh] text-[1.2vw]">
+                        Accurate and timely diagnostics with cutting-edge technology. Our diagnostic services include
+                        laboratory tests, imaging, and screenings, providing essential information to guide effective
+                        treatment plans and support your overall health management.
+                    </p>
+                </div>
+        </section>
+
+        <footer class="footer flex justify-between items-start py-12 bg-white mt-[8vw] border-t-[1px] border-black">
+            <div class="footer-section flex-1 mx-4">
+                <img src="WhatsApp Image 2024-07-06 at 15.21.32_1477d116.jpg" class="w-24 h-24 rounded-full">
+            </div>
+            <div class="footer-section flex-1 mx-4">
+                <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                <a href="#" class="text-gray-600 mb-2 block">Home</a>
+                <a href="#" class="text-gray-600 mb-2 block">Appointment</a>
+                <a href="#" class="text-gray-600 mb-2 block">Service</a>
+                <a href="#" class="text-gray-600 mb-2 block">About Us</a>
+                <a href="#" class="text-gray-600 mb-2 block">Contact Us</a>
+            </div>
+            <div class="footer-section flex-1 mx-4">
+                <h3 class="text-lg font-bold mb-4">Hours</h3>
+                <p class="text-gray-600 mb-2">Monday: 9:00 - 18:00</p>
+                <p class="text-gray-600 mb-2">Tuesday: 9:00 - 18:00</p>
+                <p class="text-gray-600 mb-2">Wednesday: 9:00 - 18:00</p>
+                <p class="text-gray-600 mb-2">Thursday: 9:00 - 18:00</p>
+                <p class="text-gray-600 mb-2">Friday: 9:00 - 18:00</p>
+            </div>
+            <div class="footer-section flex-1 mx-4">
+                <h3 class="text-lg font-bold mb-4">Contact</h3>
+                <p class="text-gray-600 mb-2">Phone: 000000</p>
+                <p class="text-gray-600 mb-2">Email: p@gmail.com</p>
+                <p class="text-gray-600 mb-2">Address: Rajpura</p>
+            </div>
+        </footer>
+    </div>
+    <script>
+        const loginButton = document.getElementById('loginButton');
+        const loginModal = document.getElementById('loginModal');
+        const closeModal = document.getElementById('closeModal');
+
+        loginButton.addEventListener('click', () => {
+            loginModal.classList.remove('hidden');
+        });
+
+        closeModal.addEventListener('click', () => {
+            loginModal.classList.add('hidden');
+            registerModal.classList.add('hidden');
+        });
+
+        // Close modal when clicking outside of it
+
+        const registerButton = document.getElementById('registerButton');
+        const registerModal = document.getElementById('registerModal');
+        registerButton.addEventListener('click', () => {
+            registerModal.classList.remove('hidden');
+        });
+
+        window.addEventListener('click', (event) => {
+            console.log(event.target);
+            if (event.target === loginModal) {
+                loginModal.classList.add('hidden');
+            }
+            if (event.target === registerModal) {
+                registerModal.classList.add('hidden');
+            }
+        });
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdown");
+            dropdown.classList.toggle("hidden");
+        }
+    </script>
+</body>
