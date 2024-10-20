@@ -19,7 +19,8 @@
         <header
             class="flex fixed justify-between items-center py-[1.2vw] px-[1.7vw] w-full border-[1px] border-b-slate-500 z-2 bg-[#FFFFFF]">
             <div id="logo" class="flex items-center">
-                <img src="WhatsApp Image 2024-07-06 at 15.21.32_1477d116.jpg" alt="Hospital Logo" class="h-16 rounded-full">
+                <img src="WhatsApp Image 2024-07-06 at 15.21.32_1477d116.jpg" alt="Hospital Logo"
+                    class="h-16 rounded-full">
                 <h3 class="text-2xl font-bold">Healthcare Hub</h3>
             </div>
             <nav class="flex space-x-[2.5vw] text-[1.2vw]">
@@ -69,7 +70,8 @@
             </div>
         </header>
 
-        <div id="loginModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[100]">
+        <div id="loginModal"
+            class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[100]">
             <!-- Modal Content -->
             <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-8">
                 <div class="flex justify-between items-center mb-4">
@@ -81,19 +83,19 @@
                 <form class="space-y-4">
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
-                        <input id="email" name="email" type="email" autocomplete="email" required
+                        <input id="login-email" name="email" type="email" autocomplete="email" required
                             class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             placeholder="Email address">
                     </div>
                     <div>
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <input id="password" name="password" type="password" autocomplete="current-password" required
+                        <input id="login-password" name="password" type="password" autocomplete="current-password" required
                             class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             placeholder="Password">
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
-                            <input id="remember-me" name="remember-me" type="checkbox"
+                            <input id="remember" name="remember-me" type="checkbox"
                                 class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
                             <label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
                         </div>
@@ -113,7 +115,8 @@
                 </form>
             </div>
         </div>
-        <div id="registerModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[100]">
+        <div id="registerModal"
+            class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[100]">
             <!-- Modal Content -->
             <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-8">
                 <div class="flex justify-between items-center mb-4">
@@ -125,8 +128,10 @@
                 <form class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700" for="fullName">Full Name:</label>
-                        <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
-                        
+                        <input
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
                         <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
                         <input id="email" name="email" type="email" autocomplete="email" required
                             class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -140,11 +145,16 @@
                     </div>
                     <!-- Phone Number -->
                     <label class="block text-sm font-medium text-gray-700" for="phoneNumber">Phone Number:</label>
-                    <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
-                    
+                    <input
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number"
+                        pattern="[0-9]{10}" required>
+
                     <label class="block text-sm font-medium text-gray-700" for="dob">Date of Birth:</label>
-                        <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" type="date" id="dob" name="dob" required>
-                        
+                    <input
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        type="date" id="dob" name="dob" required>
+
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <input id="remember-me" name="remember-me" type="checkbox"
@@ -167,27 +177,32 @@
         <section class="flex w-full pt-[12vw] px-[2vw] -z-50">
             <div class="flex flex-col flex-wrap w-1/2">
                 <h1 class="text-[5.4vw] font-bold leading-[6.3vw] mb-6">Online Book Yours Appointment with Ease</h1>
-                <p>On the Appointment page, patients can easily schedule consultations with our expert doctors. Choose your preferred doctor, select a suitable date and time, and provide essential details to confirm your appointment. Our streamlined booking process ensures prompt and personalized care, tailored to your health needs.</p>
+                <p>On the Appointment page, patients can easily schedule consultations with our expert doctors. Choose
+                    your preferred doctor, select a suitable date and time, and provide essential details to confirm
+                    your appointment. Our streamlined booking process ensures prompt and personalized care, tailored to
+                    your health needs.</p>
                 <a href="#form"
                     class="w-[4vw] mt-[1.5vw] flex justify-center items-center bg-[#9083D5] text-white rounded-lg py-2 px-7 hover:bg-[#6f5fc2] font-medium">Form</a>
             </div>
             <div class="flex w-1/2 justify-between px-[2vw]">
-                <img src="./assets/appointmentImage/appointment2.avif" class="object-scale-down w-[20vw] h-[30vw]" alt="">
-                <img src="./assets/appointmentImage/appointement.avif" class="object-scale-down w-[20vw] h-[30vw]" alt="">
+                <img src="./assets/appointmentImage/appointment2.avif" class="object-scale-down w-[20vw] h-[30vw]"
+                    alt="">
+                <img src="./assets/appointmentImage/appointement.avif" class="object-scale-down w-[20vw] h-[30vw]"
+                    alt="">
             </div>
         </section>
 
         <section id="form" class="sign-up rounded-lg py-8 px-4 mt-8 bg-grey-100">
             <h2 class="text-[4vw] font-bold text-left mb-6 px-[2vw] text-gray-600">Appointment</h2>
-            <form>
+            <form id="appointmentForm">
                 <div class="form-group flex flex-wrap gap-8 mb-6 px-[2vw]">
-                    <input type="text" name="first-name" placeholder="First Name" required
+                    <input id="userName" type="text" name="first-name" placeholder="First Name" required
                         class="flex-1 py-2 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
                     <input type="text" name="last-name" placeholder="Last Name" required
                         class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
                 </div>
                 <div class="form-group flex flex-wrap gap-8 mb-6 px-[2vw]">
-                    <input type="email" name="email" placeholder="Email" required
+                    <input id="userEmail" type="email" name="email" placeholder="Email" required
                         class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-2 focus:border-[#6f5fc2] ">
                     <input type="text" name="mobile-number" placeholder="Mobile Number" required
                         class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
@@ -195,11 +210,11 @@
                 <div class="form-group flex flex-wrap gap-8 mb-6 px-[2vw]">
                     <input type="text" name="nic" placeholder="Aadhar No." required
                         class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
-                    <input type="date" name="dob" placeholder="Date of Birth" required
+                    <input id="userDob" type="date" name="dob" placeholder="Date of Birth" required
                         class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
                 </div>
                 <div class="form-group flex items-center flex-wrap gap-8 mb-6 px-[2vw]">
-                    <select name="gender" required
+                    <select id="userGender" name="gender" required
                         class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
                         <option value="" disabled selected>Gender</option>
                         <option value="male">Male</option>
@@ -221,7 +236,7 @@
                         <option value="neurology">Neurology</option>
                         <option value="orthopedics">Orthopedics</option>
                     </select>
-                    <select name="doctor-name" required
+                    <select id="doctorName" name="doctor-name" required
                         class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
                         <option value="" disabled selected>Doctor Name</option>
                         <option value="dr-Rajeev-Agarwaal">Dr.Rajeev Agarwaal</option>
@@ -247,25 +262,20 @@
                         <tr class="bg-gray-100 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
                             <th class="py-2 px-4 border-b">ID</th>
                             <th class="py-2 px-4 border-b">Name</th>
-                            <th class="py-2 px-4 border-b">Role</th>
                             <th class="py-2 px-4 border-b">Gender</th>
                             <th class="py-2 px-4 border-b">Email</th>
-                            <th class="py-2 px-4 border-b">Mobile Number</th>
-                            <th class="py-2 px-4 border-b">NIC</th>
+                            <th class="py-2 px-4 border-b">Doctor</th>
                             <th class="py-2 px-4 border-b">DOB</th>
                             <th class="py-2 px-4 border-b">Status</th>
                             <th class="py-2 px-4 border-b">Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="text-sm text-gray-700">
+                    <tbody class="text-sm text-gray-700" id="appointmentList">
                         <tr class="hover:bg-gray-50">
                             <td class="py-2 px-4 border-b">1</td>
                             <td class="py-2 px-4 border-b">Madhusha</td>
-                            <td class="py-2 px-4 border-b">Doctor</td>
                             <td class="py-2 px-4 border-b">Male</td>
                             <td class="py-2 px-4 border-b">Madhusha@gmail.com</td>
-                            <td class="py-2 px-4 border-b">078-66622616</td>
-                            <td class="py-2 px-4 border-b">86262626</td>
                             <td class="py-2 px-4 border-b">1999-04-13</td>
                             <td class="py-2 px-4 border-b">
                                 <span
@@ -282,84 +292,19 @@
                                 </button>
                             </td>
                         </tr>
-                        <!-- Repeat the <tr> block for each row -->
-                        <!-- Example of a repeated row -->
-                        <tr class="hover:bg-gray-50">
-                            <td class="py-2 px-4 border-b">2</td>
-                            <td class="py-2 px-4 border-b">Madhusha</td>
-                            <td class="py-2 px-4 border-b">Doctor</td>
-                            <td class="py-2 px-4 border-b">Male</td>
-                            <td class="py-2 px-4 border-b">Madhusha@gmail.com</td>
-                            <td class="py-2 px-4 border-b">078-66622616</td>
-                            <td class="py-2 px-4 border-b">16616161</td>
-                            <td class="py-2 px-4 border-b">1999-04-13</td>
-                            <td class="py-2 px-4 border-b">
-                                <span
-                                    class="inline-flex items-center px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full">
-                                    Online
-                                </span>
-                            </td>
-                            <td class="py-2 px-4 border-b">
-                                <button class="text-red-500 hover:text-red-700">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="py-2 px-4 border-b">2</td>
-                            <td class="py-2 px-4 border-b">Madhusha</td>
-                            <td class="py-2 px-4 border-b">Doctor</td>
-                            <td class="py-2 px-4 border-b">Male</td>
-                            <td class="py-2 px-4 border-b">Madhusha@gmail.com</td>
-                            <td class="py-2 px-4 border-b">078-66622616</td>
-                            <td class="py-2 px-4 border-b">16616161</td>
-                            <td class="py-2 px-4 border-b">1999-04-13</td>
-                            <td class="py-2 px-4 border-b">
-                                <span
-                                    class="inline-flex items-center px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full">
-                                    Online
-                                </span>
-                            </td>
-                            <td class="py-2 px-4 border-b">
-                                <button class="text-red-500 hover:text-red-700">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="py-2 px-4 border-b">2</td>
-                            <td class="py-2 px-4 border-b">Madhusha</td>
-                            <td class="py-2 px-4 border-b">Doctor</td>
-                            <td class="py-2 px-4 border-b">Male</td>
-                            <td class="py-2 px-4 border-b">Madhusha@gmail.com</td>
-                            <td class="py-2 px-4 border-b">078-66622616</td>
-                            <td class="py-2 px-4 border-b">16616161</td>
-                            <td class="py-2 px-4 border-b">1999-04-13</td>
-                            <td class="py-2 px-4 border-b">
-                                <span
-                                    class="inline-flex items-center px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full">
-                                    Online
-                                </span>
-                            </td>
-                            <td class="py-2 px-4 border-b">
-                                <button class="text-red-500 hover:text-red-700">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                            </td>
-                        </tr>
-                        <!-- Add more rows as needed -->
                     </tbody>
                 </table>
             </div>
+        </div>
+
+        <!-- Notification Div -->
+        <div id="notification"
+            class="fixed top-10 right-10 bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold p-4 rounded-lg shadow-lg duration-300 ease-in-out transform translate-y-[-20px] flex items-center space-x-2 z-50 hidden">
+            <!-- SVG for tick icon -->
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM9 14.5l-3-3 1.5-1.5L9 11.5l4.5-4.5L15 9l-6 6.5z" />
+            </svg>
+            <span id="notificationMessage"></span>
         </div>
 
         <footer class="footer flex justify-between items-start py-12 bg-white mt-[8vw] border-t-[1px] border-black">
@@ -413,7 +358,6 @@
         });
 
         window.addEventListener('click', (event) => {
-            console.log(event.target);
             if (event.target === loginModal) {
                 loginModal.classList.add('hidden');
             }
@@ -427,10 +371,100 @@
             dropdown.classList.toggle("hidden");
         }
 
-        function onLeave(){ 
+        function onLeave() {
             var dropdown = document.getElementById("dropdown");
             dropdown.classList.toggle("hidden");
         }
+
+        // From here comes the script of the appointment form 
+
+        const appointmentForm = document.getElementById('appointmentForm');
+        const appointementList = document.getElementById('appointmentList');
+
+        function showNotification(message) {
+            notification.lastChild.textContent = message;
+            console.log(message);
+            notification.classList.remove('hidden');
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 2000);
+
+        }
+        function loadUsers() {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            appointementList.innerHTML = '';
+            users.map((user, index) => {
+                const listRow = document.createElement("tr");
+
+                listRow.innerHTML = `
+                <td class="py-2 px-4 border-b">${index + 1}</td>
+                            <td class="py-2 px-4 border-b">${user.userName}</td>
+                            <td class="py-2 px-4 border-b">${user.userGender}</td>
+                            <td class="py-2 px-4 border-b">${user.userEmail}</td>
+                            <td class="py-2 px-4 border-b">${user.doctorName}</td>
+                            <td class="py-2 px-4 border-b">${user.userDob}</td>
+                            <td class="py-2 px-4 border-b">
+                                <span
+                                    class="inline-flex items-center px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full">
+                                    Online
+                                </span>
+                            </td>
+                            <td class="py-2 px-4 border-b">
+                                <button class="text-red-500 hover:text-red-700" onclick="deleteUser(${index})">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </td>
+                `
+                appointementList.appendChild(listRow);
+            })
+        }
+
+
+        function addUser(event) {
+            event.preventDefault();
+
+            // Get form data
+            const userName = document.getElementById('userName').value;
+            const userGender = document.getElementById('userGender').value;
+            const userEmail = document.getElementById('userEmail').value;
+            const userDob = document.getElementById('userDob').value;
+            const doctorName = document.getElementById('doctorName').value;
+
+            // Create a user object
+            const newUser = { userName, userGender, userEmail, userDob, doctorName };
+
+            // Get existing users from localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Add new user to the array
+            users.push(newUser);
+
+            // Save back to localStorage
+            localStorage.setItem('users', JSON.stringify(users));
+
+            // Clear the form
+            //appointmentForm.reset();
+
+            showNotification('Appointment booked successfully');
+            // Reload the user list
+            loadUsers();
+        }
+
+        function deleteUser(index) {
+            const users = JSON.parse(localStorage.getItem('users'));
+            users.splice(index, 1);
+            localStorage.setItem('users', JSON.stringify(users));
+            loadUsers();
+
+            // Show success notification
+            showNotification('User deleted successfully!');
+        }
+        appointmentForm.addEventListener('submit', addUser);
+        loadUsers();
+
 
     </script>
 </body>

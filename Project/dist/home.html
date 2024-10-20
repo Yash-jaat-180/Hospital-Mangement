@@ -18,9 +18,10 @@
     <div class="container mx-auto w-full">
 
         <header
-            class="flex fixed justify-between items-center py-[1.2vw] px-[1.7vw] w-full border-[1px] border-b-slate-500 z-50 bg-[#FFFFFF]">
+            class="flex fixed justify-between items-center py-[1.2vw] px-[1.7vw] w-full border-[1px] border-b-slate-500 z-40 bg-[#FFFFFF]">
             <div id="logo" class="flex items-center">
-                <img src="WhatsApp Image 2024-07-06 at 15.21.32_1477d116.jpg" alt="Hospital Logo" class="h-16 rounded-full">
+                <img src="WhatsApp Image 2024-07-06 at 15.21.32_1477d116.jpg" alt="Hospital Logo"
+                    class="h-16 rounded-full">
                 <h3 class="text-2xl font-bold">Healthcare Hub</h3>
             </div>
             <nav class="flex space-x-[2.5vw] text-[1.2vw]">
@@ -36,7 +37,7 @@
                 <div class="relative inline-block text-left">
                     <button onmouseenter="toggleDropdown()" onmouseleave="onLeave()"
                         class="flex items-center text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]">
-                        Departments 
+                        Departments
                         <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -70,7 +71,19 @@
             </div>
         </header>
 
-        <div id="loginModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[100]">
+        <!-- Notification Div -->
+        <div id="notification"
+            class="fixed top-10 right-10 bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold p-4 rounded-lg shadow-lg duration-300 ease-in-out transform translate-y-[-20px] flex items-center space-x-2 z-50 hidden">
+            <!-- SVG for tick icon -->
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM9 14.5l-3-3 1.5-1.5L9 11.5l4.5-4.5L15 9l-6 6.5z" />
+            </svg>
+            <span id="notificationMessage"></span>
+        </div>
+
+
+        <div id="loginModal"
+            class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[100]">
             <!-- Modal Content -->
             <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-8">
                 <div class="flex justify-between items-center mb-4">
@@ -79,22 +92,23 @@
                         &times;
                     </button>
                 </div>
-                <form class="space-y-4">
+                <form id="login-form" class="space-y-4">
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
-                        <input id="email" name="email" type="email" autocomplete="email" required
+                        <input id="login-username" name="email" type="email" autocomplete="email" required
                             class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             placeholder="Email address">
                     </div>
                     <div>
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <input id="password" name="password" type="password" autocomplete="current-password" required
+                        <input id="login-password" name="password" type="password" autocomplete="current-password"
+                            required
                             class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             placeholder="Password">
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
-                            <input id="remember-me" name="remember-me" type="checkbox"
+                            <input name="remember-me" type="checkbox"
                                 class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
                             <label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
                         </div>
@@ -114,7 +128,8 @@
                 </form>
             </div>
         </div>
-        <div id="registerModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[100]">
+        <div id="registerModal"
+            class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[100]">
             <!-- Modal Content -->
             <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-8">
                 <div class="flex justify-between items-center mb-4">
@@ -123,32 +138,40 @@
                         &times;
                     </button>
                 </div>
-                <form class="space-y-4">
+                <form id="signup-form" class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700" for="fullName">Full Name:</label>
-                        <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
-                        
+                        <input
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
                         <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
-                        <input id="email" name="email" type="email" autocomplete="email" required
+                        <input id="signup-username" name="email" type="email" autocomplete="email" required
                             class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             placeholder="Email address">
                     </div>
                     <div>
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <input id="password" name="password" type="password" autocomplete="current-password" required
+                        <input id="signup-password" name="password" type="password" autocomplete="current-password"
+                            required
                             class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             placeholder="Password">
                     </div>
                     <!-- Phone Number -->
                     <label class="block text-sm font-medium text-gray-700" for="phoneNumber">Phone Number:</label>
-                    <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
-                    
+                    <input
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number"
+                        pattern="[0-9]{10}" required>
+
                     <label class="block text-sm font-medium text-gray-700" for="dob">Date of Birth:</label>
-                        <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" type="date" id="dob" name="dob" required>
-                        
+                    <input
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        type="date" id="dob" name="dob" required>
+
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
-                            <input id="remember-me" name="remember-me" type="checkbox"
+                            <input name="remember-me" type="checkbox"
                                 class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
                             <label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
                         </div>
@@ -169,12 +192,16 @@
             <div class="flex flex-col flex-wrap w-1/2">
                 <h1 class="text-[5.4vw] font-bold leading-[6.3vw] mb-[1.5vw]">We help people to get appointment
                     online</h1>
-                <p>Welcome to our Healthcare Hub, where quality care meets convenience. We provide comprehensive medical services, expert consultations, and easy appointment scheduling, all designed to prioritize your well-being. With our dedicated team and state-of-the-art facilities, your health is in the best hands. Experience compassionate care and a healthier tomorrow with us.</p>
+                <p>Welcome to our Healthcare Hub, where quality care meets convenience. We provide comprehensive medical
+                    services, expert consultations, and easy appointment scheduling, all designed to prioritize your
+                    well-being. With our dedicated team and state-of-the-art facilities, your health is in the best
+                    hands. Experience compassionate care and a healthier tomorrow with us.</p>
                 <a href="#tour"
                     class="w-[4vw] mt-[1.5vw] flex justify-center items-center bg-[#9083D5] text-white rounded-lg py-2 px-7 hover:bg-[#6f5fc2] font-medium">Explore</a>
             </div>
             <div class="flex w-1/2 justify-between px-[2vw]">
-                <img src="./assets/HomeImage/homePage.jpg" class="object-scale-down relative left-12 bottom-4 -z-50" alt="">
+                <img src="./assets/HomeImage/homePage.jpg" class="object-scale-down relative left-12 bottom-4 -z-50"
+                    alt="">
             </div>
         </section>
 
@@ -247,7 +274,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Service 1 -->
                     <div class="bg-white p-6 rounded-lg text-center">
-                        <img src="./assets/HomeImage/service1.webp"alt="Appointment Booking" class="mx-auto mb-4">
+                        <img src="./assets/HomeImage/service1.webp" alt="Appointment Booking" class="mx-auto mb-4">
                         <h3 class="text-xl font-semibold text-gray-700">Appointment Booking</h3>
                         <p class="text-gray-600 mt-2">
                             Easily book appointments with our expert doctors at your convenience.
@@ -265,7 +292,8 @@
 
                     <!-- Service 3 -->
                     <div class="bg-white p-6 rounded-lg text-center">
-                        <img src="./assets/HomeImage/service3.webp" alt="24/7 Consultancy" class="mx-auto mb-4 h-[18.5vw] rounded-full">
+                        <img src="./assets/HomeImage/service3.webp" alt="24/7 Consultancy"
+                            class="mx-auto mb-4 h-[18.5vw] rounded-full">
                         <h3 class="text-xl font-semibold text-gray-700">Ambulance Service</h3>
                         <p class="text-gray-600 mt-2">
                             Our ambulance services are available 24/7 to respond to emergencies.
@@ -318,7 +346,7 @@
                     <!-- Review 3 -->
                     <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
                         <div class="flex items-center mb-4">
-                            <img  src="./assets/HomeImage/review3.jpg" alt="Patient 3"
+                            <img src="./assets/HomeImage/review3.jpg" alt="Patient 3"
                                 class="w-14 h-14 rounded-full border-2 border-blue-500 mr-4 object-cover">
                             <div>
                                 <h3 class="text-lg font-semibold text-gray-700">Emily Johnson</h3>
@@ -345,28 +373,35 @@
                 <div class="h-full w-1/4 pt-[3vh] border-t-2 border-black">
                     <h2 class="text-[2.1vw] font-medium text-black">Cardiology</h2>
                     <p class="text-black mt-[10vh] text-[1.2vw]">
-                        The Department of Cardiology is dedicated to providing comprehensive heart care, offering advanced diagnostic and treatment options for cardiovascular diseases. Our team of experienced cardiologists is committed to delivering personalized care, focusing on prevention, early detection, and innovative therapies to improve heart health and patient outcomes.
+                        The Department of Cardiology is dedicated to providing comprehensive heart care, offering
+                        advanced diagnostic and treatment options for cardiovascular diseases. Our team of experienced
+                        cardiologists is committed to delivering personalized care, focusing on prevention, early
+                        detection, and innovative therapies to improve heart health and patient outcomes.
                     </p>
                 </div>
                 <div class="h-full w-[70%] bg-[#ffebcd] relative">
-                    <img src="./assets/HomeImage/department1.avif"
-                        alt="" class="h-[70vh] w-full object-cover -z-50">
+                    <img src="./assets/HomeImage/department1.avif" alt="" class="h-[70vh] w-full object-cover -z-50">
                 </div>
             </div>
             <div class="w-full h-[72vh] flex items-center justify-between px-[10vw] pt-[13vh] pb-0">
 
                 <div class="h-full w-[70%] bg-[#ffebcd] relative">
-                    <img src="./assets/HomeImage/department2.jpg"
-                        alt="" class="h-[70vh] w-full object-cover -z-50">
+                    <img src="./assets/HomeImage/department2.jpg" alt="" class="h-[70vh] w-full object-cover -z-50">
                 </div>
                 <div class="h-full w-1/4 pt-[3vh] border-t-2 border-black">
                     <h2 class="text-[2.1vw] font-medium text-black">Neurology</h2>
                     <p class="text-black mt-[10vh] text-[1.2vw]">
-                        The Department of Neurology specializes in diagnosing and treating disorders of the nervous system, including the brain, spinal cord, and peripheral nerves. Our expert neurologists use cutting-edge techniques and personalized care plans to address a wide range of neurological conditions, from migraines and epilepsy to stroke and neurodegenerative diseases, ensuring optimal patient care and recovery.
+                        The Department of Neurology specializes in diagnosing and treating disorders of the nervous
+                        system, including the brain, spinal cord, and peripheral nerves. Our expert neurologists use
+                        cutting-edge techniques and personalized care plans to address a wide range of neurological
+                        conditions, from migraines and epilepsy to stroke and neurodegenerative diseases, ensuring
+                        optimal patient care and recovery.
                     </p>
                 </div>
             </div>
         </section>
+
+
 
 
 
@@ -421,7 +456,6 @@
         });
 
         window.addEventListener('click', (event) => {
-            console.log(event.target);
             if (event.target === loginModal) {
                 loginModal.classList.add('hidden');
             }
@@ -433,9 +467,62 @@
             var dropdown = document.getElementById("dropdown");
             dropdown.classList.toggle("hidden");
         }
-        function onLeave(){ 
+        function onLeave() {
             var dropdown = document.getElementById("dropdown");
             dropdown.classList.toggle("hidden");
+        }
+        // Here we write the login or register user
+        document.getElementById('signup-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get username and password
+            const username = document.getElementById('signup-username').value;
+            const password = document.getElementById('signup-password').value;
+
+            if (username && password) {
+                // Save user to localStorage
+                localStorage.setItem(username, JSON.stringify({ password: password }));
+                showNotification('Sign-up successful! You can now login.');
+                document.getElementById('signup-form').reset();
+            } else {
+                showNotification('Please fill all fields.');
+            }
+            registerModal.classList.add('hidden');
+        });
+
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get username and password
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            // Check if user exists in localStorage
+            const storedUser = localStorage.getItem(username);
+
+            if (storedUser) {
+                const user = JSON.parse(storedUser);
+                if (user.password === password) {
+                    showNotification('Login successful!');
+                    // Redirect or proceed with logged-in actions
+                } else {
+                    showNotification('Incorrect password.');
+                }
+            } else {
+                showNotification('User not found. Please sign up.');
+            }
+            loginModal.classList.add('hidden');
+
+        });
+        const notification = document.getElementById('notification');
+        function showNotification(message) {
+            notification.lastChild.textContent = message;
+            console.log(message);
+            notification.classList.remove('hidden');
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 2000);
+
         }
     </script>
 </body>

@@ -1,27 +1,39 @@
-our total doctors and bed and patients
-<section>
-    <div class="w-full flex flex-wrap justify-evenly items-center font-bold text-white text-xl px-4">
+<!DOCTYPE html>
+<html lang="en">
 
-        <div class="w-40 h-20 flex flex-col items-center mb-12">
-            <img class="relative bottom-12 w-40  mb-2 bg-white p-2 rounded-xl"
-                src="https://uxwing.com/wp-content/themes/uxwing/download/medical-science-lab/doctor-icon.png"
-                alt="svg image">
-            <p class="text-gray-500">120+</p>
-            <p class="text-gray-500">Doctors at Work</p>
-        </div>
-        <div class="w-46 flex flex-col items-center mb-12">
-            <img class="w-44 h-44 mb-2 bg-white p-2 rounded-xl"
-                src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/group-icon.png"
-                alt="svg image">
-                <p class="text-gray-500">120+</p>
-            <p class="text-gray-500">Doctors at Work</p>
-        </div>
-        <div class="w-46 flex flex-col items-center mb-12">
-            <img class="w-44 mb-2 bg-white p-2 rounded-xl"
-                src="https://uxwing.com/wp-content/themes/uxwing/download/household-and-furniture/sleep-icon.png"
-                alt="svg image">
-                <p class="text-gray-500">120+</p>
-            <p class="text-gray-500">Doctors at Work</p>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Toggle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Add smooth transitions for background and text color */
+        html {
+            transition: background-color 0.5s, color 0.5s;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-black dark:bg-gray-900 dark:text-white">
+    <div class="flex flex-col items-center justify-center min-h-screen">
+        <h1 class="text-5xl mb-4">Toggle Dark Mode</h1>
+        <button id="toggleThemeBtn" class="px-4 py-2 bg-blue-500 text-white rounded">Switch to Dark Mode</button>
     </div>
-</section>
+    <script>
+        const toggleBtn = document.getElementById('toggleThemeBtn');
+
+        // Toggle the dark mode class on the html element
+        toggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+
+            // Update button text depending on the mode
+            if (document.documentElement.classList.contains('dark')) {
+                toggleBtn.textContent = 'Switch to Light Mode';
+            } else {
+                toggleBtn.textContent = 'Switch to Dark Mode';
+            }
+        });
+    </script>
+</body>
+
+</html>
