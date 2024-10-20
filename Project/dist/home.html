@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediLab Hospital</title>
+    <title>Healthcare Hub</title>
     <link rel="icon" type="image/x-icon" href="WhatsApp Image 2024-07-06 at 15.21.32_1477d116.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,13 +15,13 @@
 </head>
 
 <body>
-    <div class="container mx-auto  w-full">
+    <div class="container mx-auto w-full">
 
         <header
             class="flex fixed justify-between items-center py-[1.2vw] px-[1.7vw] w-full border-[1px] border-b-slate-500 z-50 bg-[#FFFFFF]">
             <div id="logo" class="flex items-center">
                 <img src="WhatsApp Image 2024-07-06 at 15.21.32_1477d116.jpg" alt="Hospital Logo" class="h-16 rounded-full">
-                <h3 class="text-2xl font-bold">MediLab Hospital</h3>
+                <h3 class="text-2xl font-bold">Healthcare Hub</h3>
             </div>
             <nav class="flex space-x-[2.5vw] text-[1.2vw]">
                 <a href="#"
@@ -34,9 +34,9 @@
                     class="text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]">About
                     Us</a>
                 <div class="relative inline-block text-left">
-                    <button onclick="toggleDropdown()"
-                        class="flex items-center text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]0">
-                        Departments
+                    <button onmouseenter="toggleDropdown()" onmouseleave="onLeave()"
+                        class="flex items-center text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]">
+                        Departments 
                         <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -44,7 +44,7 @@
                     </button>
 
                     <div id="dropdown"
-                        class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden">
+                        class="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden">
                         <div class="py-1">
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cardiology</a>
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Orthopedics</a>
@@ -167,11 +167,11 @@
 
         <section class="flex w-full pt-[12vw] px-[2vw] -z-50 h-screen">
             <div class="flex flex-col flex-wrap w-1/2">
-                <h1 class="text-[5.4vw] font-bold leading-[6.3vw] mb-[1.5vw]">We help people to get appointment in
+                <h1 class="text-[5.4vw] font-bold leading-[6.3vw] mb-[1.5vw]">We help people to get appointment
                     online</h1>
-                <p>Welcome to our MediLab Hospital, where quality care meets convenience. We provide comprehensive medical services, expert consultations, and easy appointment scheduling, all designed to prioritize your well-being. With our dedicated team and state-of-the-art facilities, your health is in the best hands. Experience compassionate care and a healthier tomorrow with us.</p>
+                <p>Welcome to our Healthcare Hub, where quality care meets convenience. We provide comprehensive medical services, expert consultations, and easy appointment scheduling, all designed to prioritize your well-being. With our dedicated team and state-of-the-art facilities, your health is in the best hands. Experience compassionate care and a healthier tomorrow with us.</p>
                 <a href="#tour"
-                    class="w-[4vw] mt-[1.5vw] flex justify-center items-center bg-[#9083D5] text-white rounded-lg py-2 px-7 hover:bg-[#6f5fc2] font-medium">Tour</a>
+                    class="w-[4vw] mt-[1.5vw] flex justify-center items-center bg-[#9083D5] text-white rounded-lg py-2 px-7 hover:bg-[#6f5fc2] font-medium">Explore</a>
             </div>
             <div class="flex w-1/2 justify-between px-[2vw]">
                 <img src="./assets/HomeImage/homePage.jpg" class="object-scale-down relative left-12 bottom-4 -z-50" alt="">
@@ -185,7 +185,7 @@
             <h2 class="text-[4vw] font-bold text-left mb-6 px-[2vw] text-gray-600">Our Doctors</h2>
             <div class="flex py-[2vw] gap-[8vw] px-[2vw]">
                 <div class="max-w-sm w-[40vw] bg-white shadow-lg rounded-lg overflow-hidden">
-                    <img class="w-full h-66 object-top" src="./assets/HomeImage/doctor1.png" alt="Doctor Image">
+                    <img class="w-full h-66 object-cover" src="./assets/HomeImage/doctor1.png" alt="Doctor Image">
                     <div class="p-4">
                         <h2 class="text-xl font-semibold text-gray-800">Dr. John Doe</h2>
                         <p class="text-gray-600 mt-2">
@@ -294,7 +294,7 @@
                             </div>
                         </div>
                         <p class="text-gray-600">
-                            "The experience with the MediLab Hospital was absolutely fantastic. The doctors are highly
+                            "The experience with the Healthcare Hub was absolutely fantastic. The doctors are highly
                             professional and the service is excellent!"
                         </p>
                     </div>
@@ -430,6 +430,10 @@
             }
         });
         function toggleDropdown() {
+            var dropdown = document.getElementById("dropdown");
+            dropdown.classList.toggle("hidden");
+        }
+        function onLeave(){ 
             var dropdown = document.getElementById("dropdown");
             dropdown.classList.toggle("hidden");
         }
