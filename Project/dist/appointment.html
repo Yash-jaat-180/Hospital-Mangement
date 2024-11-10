@@ -192,9 +192,9 @@
             </div>
         </section>
 
-        <section id="form" class="sign-up rounded-lg py-8 px-4 mt-8 bg-grey-100">
+        <section id="form" class="sign-up flex-col  rounded-lg py-8 px-4 mt-8 bg-grey-100">
             <h2 class="text-[4vw] font-bold text-left mb-6 px-[2vw] text-gray-600">Appointment</h2>
-            <form id="appointmentForm">
+            <form class="flex flex-col justify-center" id="appointmentForm">
                 <div class="form-group flex flex-wrap gap-8 mb-6 px-[2vw]">
                     <input id="userName" type="text" name="first-name" placeholder="First Name" required
                         class="flex-1 py-2 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
@@ -222,10 +222,10 @@
                         <option value="other">Other</option>
                     </select>
                     <label for="appointement-time">Appointment Date: </label>
-                    <input type="date" name="appointment-date" placeholder="Appointment Date" required
+                    <input id="appointmentDate" type="date" name="appointment-date" placeholder="Appointment Date" required
                         class="flex items-center py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
                     <label for="appointement-time">Appointment Time: </label>
-                    <input type="time" name="appointment-time" required
+                    <input id="appointmentTime" type="time" name="appointment-time" required
                         class="flex-1 py-3 px-5 border-2 border-gray-300 rounded-lg w-1/2 focus:outline-none focus:border-[#6f5fc2] focus:border-2">
                 </div>
                 <div class="form-group flex flex-wrap gap-8 mb-6 px-[2vw]">
@@ -247,14 +247,16 @@
                     <textarea name="address" placeholder="Address" required rows="5"
                         class="w-full py-3 px-5 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#6f5fc2] focus:border-2"></textarea>
                 </div>
-                <center><button type="submit"
-                        class="bg-[#9083D5] text-white rounded-lg py-3 px-5 hover:bg-[#6f5fc2] font-medium">Register</button>
-                </center>
+                <button type="submit"
+                        class="flex items-center text-white justify-center rounded-lg py-3 px-5 font-medium"><span class="bg-[#9083D5] w-[10vw] py-3 px-5 font-medium rounded-lg hover:bg-[#6f5fc2]">Register</span></button>
+        
             </form>
         </section>
 
         <div class="container px-[4vw] mt-[2vw] bg-white rounded-lg">
             <h2 class="text-[3vw] font-bold mb-1 text-gray-600">Recent Appointment</h2>
+
+            <button onclick="loadUsers(true)" class="text-gray-700 font-medium border border-gray-300 rounded-lg py-3 px-5 transition ease-in-out duration-300 hover:bg-[#9083D5] hover:font-medium hover:text-white mb-4">SortByDate</button>
 
             <div class="overflow-x-auto">
                 <table class="min-w-full bg-white border border-gray-300 rounded-lg">
@@ -266,6 +268,8 @@
                             <th class="py-2 px-4 border-b">Email</th>
                             <th class="py-2 px-4 border-b">Doctor</th>
                             <th class="py-2 px-4 border-b">DOB</th>
+                            <th class="py-2 px-4 border-b">Appointment-Date</th>
+                            <th class="py-2 px-4 border-b">Appointment-Time</th>
                             <th class="py-2 px-4 border-b">Status</th>
                             <th class="py-2 px-4 border-b">Actions</th>
                         </tr>
@@ -388,8 +392,13 @@
             }, 2000);
         }
 
-        function loadUsers() {
+        function loadUsers(sortByDate = false) {
             const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            if (sortByDate) {
+                users.sort((a, b) => new Date(a.appointmentDate) - new Date(b.appointmentDate));
+            }
+
             appointementList.innerHTML = '';
             users.map((user, index) => {
                 const listRow = document.createElement("tr");
@@ -401,6 +410,8 @@
                             <td class="py-2 px-4 border-b">${user.userEmail}</td>
                             <td class="py-2 px-4 border-b">${user.doctorName}</td>
                             <td class="py-2 px-4 border-b">${user.userDob}</td>
+                            <td class="py-2 px-4 border-b">${user.appointmentDate}</td>
+                            <td class="py-2 px-4 border-b">${user.appointmentTime}</td>
                             <td class="py-2 px-4 border-b">
                                 <span
                                     class="inline-flex items-center px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full">
@@ -420,7 +431,7 @@
             })
         }
 
-
+        
         function addUser(event) {
             event.preventDefault();
 
@@ -429,8 +440,14 @@
             const userEmail = document.getElementById('userEmail').value;
             const userDob = document.getElementById('userDob').value;
             const doctorName = document.getElementById('doctorName').value;
+            const appointmentDate = document.getElementById('appointmentDate').value;
+            const appointmentTime = document.getElementById('appointmentTime').value;
 
-            const newUser = { userName, userGender, userEmail, userDob, doctorName };
+            const reminderMinutesBefore = 30; // You can adjust this
+            const appointmentDateTime = new Date(`${appointmentDate}T${appointmentTime}`);
+            const reminderTime = new Date(appointmentDateTime.getTime() - reminderMinutesBefore * 60000).toISOString();
+
+            const newUser = { userName, userGender, userEmail, userDob, doctorName, appointmentDate, appointmentTime, reminderTime };
 
             const users = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -454,6 +471,9 @@
         }
         appointmentForm.addEventListener('submit', addUser);
         loadUsers();
+
+
+
 
         async function fetchDepartments() {
             try {
