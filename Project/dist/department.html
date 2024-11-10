@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="WhatsApp Image 2024-07-06 at 15.21.32_1477d116.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="w-full h-[72vh] flex items-center justify-between px-[10vw] pt-[13vh] pb-0 mb-[5vw]">
+        <div class="h-full w-1/4 pt-[3vh] border-t-2 border-black">
+            <h2 id="department-name" class="text-[2.1vw] font-medium text-black"></h2>
+            <p id="department-description" class="text-black mt-[10vh] text-[1.2vw]">
+            </p>
+        </div>
+        <div class="h-full w-[70%] bg-[#ffebcd] relative">
+            <img id="department-image"
+                alt="" class="h-[70vh] w-full object-cover -z-50">
+        </div>
+    </div>
+
+    <script>
+        async function fetchDepartmentDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const departmentId = urlParams.get("id");
+
+            console.log("Department ID from URL:", departmentId);
+
+            if (departmentId) {
+                try {
+                    const response = await fetch(`https://672cd490fd89797156405d71.mockapi.io/api/v1/departments`);
+
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch department: ${response.statusText}`);
+                    }
+
+                    const department = await response.json();
+                    console.log("Fetched Department Data:", department);
+                    for (let i = 0; i < department.length; i++) {
+                        if (department[i].id == departmentId) {
+                            console.log(departmentId)
+                            let data = department[i];
+                            document.getElementById("department-name").textContent = data.name;
+                            const imgElement = document.getElementById("department-image");
+                            imgElement.src = data.image;
+                            imgElement.alt = data.name;
+                            imgElement.style.display = "block"; // Show the image
+                            document.getElementById("department-description").textContent = data.description;
+                        }
+                    }
+                } catch (error) {
+                    console.error("Error fetching department data:", error);
+                }
+            } else {
+                document.getElementById("department-content").textContent = "No department selected.";
+            }
+        }
+
+        fetchDepartmentDetails();
+    </script>
+</body>
+
+</html>

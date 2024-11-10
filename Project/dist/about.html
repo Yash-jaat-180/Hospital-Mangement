@@ -33,10 +33,10 @@
                     class="text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]">About
                     Us</a>
                 <div class="relative inline-block text-left">
-                    <button onmouseenter="toggleDropdown()" onmouseleave="onLeave()"
+                    <button onclick="toggleDropdown()"
                         class="flex items-center text-gray-700 font-medium transition ease-in-out duration-300 hover:text-[#9083D5]0">
                         Departments
-                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        <svg id="svgUpper" class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
@@ -294,11 +294,49 @@
         // dropdown
         function toggleDropdown() {
             var dropdown = document.getElementById("dropdown");
+            let svgUpper = document.getElementById("svgUpper");
             dropdown.classList.toggle("hidden");
+            svgUpper.classList.toggle('rotate-180');
         }
         function onLeave(){ 
             var dropdown = document.getElementById("dropdown");
             dropdown.classList.toggle("hidden");
         }
+
+        async function fetchDepartments() {
+            try {
+                const response = await fetch("https://672cd490fd89797156405d71.mockapi.io/api/v1/departments");
+                const departments = await response.json();
+    
+                const dropdown = document.getElementById("dropdown");
+                dropdown.innerHTML = ''; 
+    
+                departments.forEach(department => {
+                    const departmentLink = document.createElement("a");
+                    departmentLink.href = "#";
+                    departmentLink.className = "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100";
+                    departmentLink.textContent = department.name;
+    
+                    const departmentImage = document.createElement("img");
+                    departmentImage.src = department.image;
+                    departmentImage.alt = department.name;
+                    departmentImage.className = "inline-block w-4 h-4 mr-2";
+    
+                    departmentLink.prepend(departmentImage);
+    
+                    departmentLink.addEventListener("click", () => renderDepartmentPage(department));
+
+                    dropdown.appendChild(departmentLink);
+                });
+            } catch (error) {
+                console.error("Error fetching department data:", error);
+            }
+        }
+
+        function renderDepartmentPage(department) {
+            console.log(department.id);
+            window.location.href = `department.html?id=${department.id}`;
+        }
+        window.onload = fetchDepartments;
     </script>
 </body>
